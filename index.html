@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌊 Hydrosphere: Water World Adventure for Kids!</title>
+<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=YJrmUGegBspxJvbJenaRQBsBb2uQSCFI6cq-AXy5C55Umt4GcS0qiDM6PGmO7tyZbBefqKdnM6_a-aDryj4nAWMjIFvp_9EGZBuaspL1W2CDn-gXVppL1Lk7n5zCpR2ZMSYlh4UtZTr3mo3ipcBTwPnTxJwKd0iV8h-_PnTboAf_CZOzaWH9C5mo7t1W97OJuqqEzUWljwSwPdcqUwR2Gt-jKDvD7rRuZwTOoYUjmUu2aSnCTBBawQEYjuqteqOWigxqCW7YPJjjVWMmYFB7ZGvYjjdRkQOJiFmasUJGGCYrPhu2eKHE6eCMdSSet_KKh_MrP7nb0NFb5IaO06JOeDLP6jCYvyDxiiijJo-ZxXk" charset="UTF-8"></script><style>
+  :root {
+    --deep-blue: #0c4a6e;
+    --ocean-blue: #0284c7;
+    --sky-blue: #38bdf8;
+    --teal: #0d9488;
+    --sunny-yellow: #f59e0b;
+    --coral-red: #ef4444;
+    --card-bg: #1e293b;
+    --inner-card: #0f172a;
+    --text-white: #f8fafc;
+    --text-muted: #cbd5e1;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Fredoka', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: radial-gradient(circle at top, #0f172a 0%, #030712 100%);
+    color: var(--text-white);
+    line-height: 1.6;
+    padding: 25px 15px 80px 15px;
+  }
+
+  .container {
+    max-width: 950px;
+    margin: 0 auto;
+  }
+
+  /* Header Banner */
+  .hero-card {
+    background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 50%, #0d9488 100%);
+    border: 2px solid rgba(56, 189, 248, 0.4);
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(2, 132, 199, 0.3);
+    margin-bottom: 30px;
+  }
+
+  .hero-card h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.4);
+  }
+
+  .hero-card p {
+    font-size: 1.05rem;
+    color: #e0f2fe;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
+  /* Index / Navigation Pills */
+  .index-container {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 15px;
+    margin-top: 18px;
+  }
+
+  .index-title {
+    font-size: 0.95rem;
+    color: var(--sky-blue);
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .nav-pills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav-pills a {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: all 0.2s;
+  }
+
+  .nav-pills a:hover {
+    background: #fff;
+    color: var(--deep-blue);
+    transform: translateY(-2px);
+  }
+
+  /* Concept Section Cards */
+  .concept-card {
+    background: var(--card-bg);
+    border: 2px solid #334155;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: border-color 0.2s;
+    position: relative;
+  }
+
+  .concept-card:hover {
+    border-color: var(--sky-blue);
+  }
+
+  .concept-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #334155;
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+  }
+
+  .concept-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.4rem;
+    color: var(--sky-blue);
+  }
+
+  .concept-title .badge-icon {
+    font-size: 1.6rem;
+    background: #0f172a;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--sky-blue);
+  }
+
+  /* Back to Index Button */
+  .back-to-index-btn {
+    background: linear-gradient(135deg, #0284c7, #0369a1);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 3px 8px rgba(2, 132, 199, 0.3);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    white-space: nowrap;
+  }
+
+  .back-to-index-btn:hover {
+    background: #38bdf8;
+    color: #0c4a6e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
+  }
+
+  .card-footer-nav {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 1px dashed #334155;
+  }
+
+  /* Grids for Cards */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 15px 0;
+  }
+
+  .grid-6 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
+    margin: 15px 0;
+  }
+
+  .mini-box {
+    background: var(--inner-card);
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 15px;
+  }
+
+  .mini-box h4 {
+    color: var(--sunny-yellow);
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .mini-box p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+  }
+
+  /* Fun Stage Cards */
+  .stage-box {
+    background: #0f172a;
+    border: 1px solid #0284c7;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .stage-box .stage-num {
+    background: #0284c7;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 900;
+    padding: 2px 8px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+
+  .stage-box h5 {
+    color: var(--sky-blue);
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+  }
+
+  .stage-box p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  /* Callout Boxes */
+  .analogy-banner {
+    background: rgba(13, 148, 136, 0.15);
+    border-left: 5px solid var(--teal);
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin: 14px 0;
+    color: #ccfbf1;
+  }
+
+  .fun-fact {
+    background: rgba(245, 158, 11, 0.15);
+    border-left: 5px solid var(--sunny-yellow);
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin: 14px 0;
+    color: #fef3c7;
+  }
+
+  /* Formula Card */
+  .formula-display {
+    background: #082f49;
+    border: 2px dashed #38bdf8;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  .formula-display .math-text {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--sunny-yellow);
+    letter-spacing: 1px;
+  }
+
+  .formula-display .sub-text {
+    font-size: 0.9rem;
+    color: #93c5fd;
+    margin-top: 4px;
+  }
+
+  /* Custom Clean Tables */
+  .kids-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 0.92rem;
+  }
+
+  .kids-table th, .kids-table td {
+    border: 1px solid #334155;
+    padding: 10px 12px;
+    text-align: left;
+  }
+
+  .kids-table th {
+    background-color: #0f172a;
+    color: var(--sky-blue);
+    font-weight: 700;
+  }
+
+  .kids-table tr:nth-child(even) {
+    background-color: rgba(15, 23, 42, 0.6);
+  }
+
+  /* Interactive Image Open Buttons */
+  .btn-cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .btn-interactive {
+    background: #0f172a;
+    color: var(--sky-blue);
+    border: 1px solid #0284c7;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.88rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+  }
+
+  .btn-interactive:hover {
+    background: var(--ocean-blue);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+  }
+
+  /* Floating Back to Index Button */
+  .floating-index-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: linear-gradient(135deg, #0284c7, #0d9488);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 0.92rem;
+    font-weight: bold;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    border: 2px solid #38bdf8;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.25s ease;
+  }
+
+  .floating-index-btn:hover {
+    background: #38bdf8;
+    color: #0c4a6e;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+  }
+
+  /* Lightbox Modal */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.92);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+  }
+
+  .modal-overlay.active {
+    display: flex;
+  }
+
+  .modal-content {
+    background: #1e293b;
+    border-radius: 16px;
+    border: 2px solid #38bdf8;
+    max-width: 850px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+    animation: popIn 0.22s ease-out;
+  }
+
+  @keyframes popIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px;
+    background: #0f172a;
+    border-bottom: 1px solid #334155;
+    color: #f8fafc;
+  }
+
+  .modal-header h3 {
+    font-size: 1.1rem;
+    color: #38bdf8;
+  }
+
+  .modal-close {
+    background: #ef4444;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-close:hover {
+    background: #dc2626;
+  }
+
+  .modal-body {
+    padding: 15px;
+    text-align: center;
+    background: #090d16;
+  }
+
+  .modal-body img {
+    max-width: 100%;
+    max-height: 60vh;
+    border-radius: 8px;
+    object-fit: contain;
+  }
+
+  .modal-caption {
+    padding: 12px 18px;
+    background: #0f172a;
+    color: #cbd5e1;
+    font-size: 0.92rem;
+    text-align: left;
+    border-top: 1px solid #334155;
+  }
+
+  .print-bar {
+    text-align: right;
+    margin-bottom: 18px;
+  }
+
+  .btn-print {
+    background: var(--teal);
+    color: white;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  @media print {
+    .print-bar, .btn-cluster, .nav-pills, .back-to-index-btn, .floating-index-btn { display: none !important; }
+    .modal-overlay { display: none !important; }
+    body { background: #fff; color: #000; padding: 0; }
+    .concept-card { border: 1px solid #ccc; box-shadow: none; page-break-inside: avoid; background: #fff; color: #000; }
+    .mini-box, .stage-box { background: #f8fafc; color: #000; border: 1px solid #ddd; }
+    .concept-title, .mini-box h4, .stage-box h5 { color: #000; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Floating Back to Top / Index Button -->
+<a href="#pageIndex" class="floating-index-btn">
+  <span>🔝</span>
+  <span>Back to Index</span>
+</a>
+
+<div class="container">
+
+  <div class="print-bar">
+    <button class="btn-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+  </div>
+
+  <!-- Header & Index Anchor -->
+  <header class="hero-card" id="pageIndex">
+    <h1>🌊 Hydrosphere: The Water Kingdom!</h1>
+    <p>Everything children need to easily understand the Water Cycle, Ocean Floor, Salinity, Deep Sea Trenches, and Ocean Rivers!</p>
+    
+    <div class="index-container">
+      <div class="index-title">📑 Quick Chapter Index:</div>
+      <div class="nav-pills">
+        <a href="#k1">1. Water Cycle</a>
+        <a href="#k2">2. Water Pie Chart</a>
+        <a href="#k3">3. 5 Oceans</a>
+        <a href="#k4">4. Ocean Floor Map</a>
+        <a href="#k5">5. Why is Sea Salty?</a>
+        <a href="#k6">6. Ocean Rivers (Currents)</a>
+        <a href="#k7">7. Ocean Treasures & Protection</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= CONCEPT 1: WATER CYCLE ================= -->
+  <section id="k1" class="concept-card">
+    <div class="concept-header">
+      <div class="concept-title">
+        <span class="badge-icon">🔄</span>
+        <h2>1. The Hydrological Cycle (Earth's Water Machine)</h2>
+      </div>
+      <a href="#pageIndex" class="back-to-index-btn">⬆ Back to Index</a>
+    </div>
+
+    <p>Water is a <strong>cyclical renewable resource</strong> [cite: 8] — it travels from oceans to air, falls onto land, and runs back to the oceans in a loop that never stops [cite: 8]!</p>
+
+    <div class="formula-display">
+      <div class="math-text">RF = RO + ET</div>
+      <div class="sub-text"><strong>RF</strong> (Rainfall / Precipitation) = <strong>RO</strong> (Run Off) + <strong>ET</strong> (Evapotranspiration) [cite: 8]</div>
+    </div>
+
+    <h4 style="color: var(--sunny-yellow); margin-top: 15px;">The 6 Magic Steps of the Water Cycle [cite: 8]:</h4>
+    <div class="grid-6">
+      <div class="stage-box">
+        <span class="stage-num">STEP 1</span>
+        <h5>☀️ Evaporation</h5>
+        <p>Sun heats liquid water into vapor [cite: 8]. Plants lose water via <em>Transpiration</em> [cite: 8].</p>
+      </div>
+
+      <div class="stage-box">
+        <span class="stage-num">STEP 2</span>
+        <h5>☁️ Transportation</h5>
+        <p>Winds push clouds of vapor from over the ocean towards land [cite: 8].</p>
+      </div>
+
+      <div class="stage-box">
+        <span class="stage-num">STEP 3</span>
+        <h5>💧 Condensation</h5>
+        <p>Vapor cools down high in the sky to form water drops & clouds [cite: 8].</p>
+      </div>
+
+      <div class="stage-box">
+        <span class="stage-num">STEP 4</span>
+        <h5>🌧️ Precipitation</h5>
+        <p>Clouds get heavy and water falls as rain, sleet, or snow [cite: 8]!</p>
+      </div>
+
+      <div class="stage-box">
+        <span class="stage-num">STEP 5</span>
+        <h5>🏞️ Run Off</h5>
+        <p>Water flows down hills into streams & rivers back to the sea [cite: 8].</p>
+      </div>
+
+      <div class="stage-box">
+        <span class="stage-num">STEP 6</span>
+        <h5>🌱 Groundwater</h5>
+        <p>Some rain sinks into rocks, refilling wells underground [cite: 8].</p>
+      </div>
+    </div>
+
+    <div class="btn-cluster">
+      <button class="btn-interactive" onclick="openModal('https://upload.wikimedia.org/wikipedia/commons/9/94/Water_cycle.png', 'The Complete Hydrological Cycle', 'Diagram showing solar evaporation, plant transpiration, cloud condensation, rain precipitation, and river runoff back into the ocean.')">
+        🖼️ View: Water Cycle Diagram
+      </button>
+    </div>
+
+    <div class="card-footer-nav">
+      <a href="#pageIndex" class="back-to-index-btn">⬆ Back to Index</a>
+    </div>
+  </section>
+
+  <!-- ================= CONCEPT 2: WHERE IS EARTH'S WATER? ================= -->
+  <section id="k2" class="concept-card">
+    <div class="concept-header">
+      <div class="concept-title">
+        <span class="badge-icon">📊</span>
+        <h2>2. Earth's Water Bank: Salty vs. Fresh Water</h2>
+      </div>
+      <a href="#pageIndex" class="back-to-index-btn">⬆ Back to Index</a>
+    </div>
+
+    <div class="grid-2">
+      <div class="mini-box" style="border-color: #0284c7;">
+        <h4 style="color: #38bdf8;">🧂 Salty Ocean Water: 97.22%</h4>
+        <p>Almost ALL of Earth's water (97.2169%) is trapped in salty oceans and inland seas that we cannot drink directly [cite: 8]!</p>
+      </div>
+
+      <div class="mini-box" style="border-color: #10b981;">
+        <h4 style="color: #34d399;">🚰 Total Fresh Water: Only 2.78%!</h4>
+        <p>Where is this tiny bit of fresh water hiding [cite: 8]?</p>
+        <ul style="margin: 6px 0 0 18px; font-size: 0.88rem;">
+          <li><strong>69.56%</strong> frozen solid in icecaps & glaciers (Antarctica & Arctic) [cite: 8]!</li>
+          <li><strong>30.10%</strong> buried deep underground as groundwater [cite: 8].</li>
+          <li><strong>Only 0.34%</strong> in lakes, rivers, and reservoirs that humans can easily reach [cite: 8]!</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="analogy-banner">
+      <strong>🪣 The 100-Bucket Bucket Analogy:</strong> If all the water on Earth filled 100 big buckets, 97 buckets would be undrinkable salt water, almost 3 buckets would be frozen blocks of ice, and only <strong>one single spoonful</strong> would be the freshwater in our rivers and lakes [cite: 8]! That is why saving water is super important!
+    </div>
+
+    <div class="card-footer-nav">
+      <a href="#pageIndex" class="back-to-index-btn">⬆ Back to Index</a>
+    </div>
+  </section>
+
+  <!-- ================= CONCEPT 3: THE 5 OCEANS ================= -->
+  <section id="k3" class="concept-card">
+    <div class="concept-header">
+      <div class="concept-title">
+        <span class="badge-icon">🗺️</span>
+        <h2>3. The 5 Giant Oceans (Ranked by Size)</h2>
+      </div>
+      <a href="#pageIndex" class="back-to-index-btn">⬆ Back to Index</a>
+    </div>
+
+    <p>Oceans and continents are the <strong>First Order Relief Features</strong> of Earth [cite: 8]. Millions of years ago, all oceans formed one single super-ocean called <strong>Panthalassa</strong> [cite: 8]!</p>
+
+    <table class="kids-table">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Ocean Name</th>
+          <th>Fun Explorer Fact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1</strong></td>
+          <td><strong>The Pacific Ocean</strong></td>
+          <td>The biggest! Separates Asia & Australia from the Americas [cite: 8]. Contains the deepest trench on Earth [cite: 8].</td>
+        </tr>
+        <tr>
+          <td><strong>2</strong></td>
+          <td><strong>The Atlantic Ocean</strong></td>
+          <td>S-shaped ocean separating the Americas from Europe and Africa [cite: 8].</td>
+        </tr>
+        <tr>
+          <td><strong>3</strong></td>
+          <td><strong>The Indian Ocean</strong></td>
+          <td>Named after India! Washes Southern Asia and separates Africa from Australia [cite: 8].</td>
+        </tr>
+        <tr>
+          <td><strong>4</strong></td>
+          <td><strong>The Antarctic Ocean (Southern Ocean)</strong></td>
+          <td>The freezing ring of ocean encircling the frozen continent of Antarctica [cite: 8].</td>
+        </tr>
+        <tr>
+          <td><strong>5</strong></td>
+          <td><strong>The Arctic Ocean</strong></td>
+          <td>The smallest and coldest ocean around the North Pole, covered in polar ice [cite: 8].</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="fun-fact">
+      <strong>🚢 Ocean Secret — Ocean vs. Sea:</strong> A "Sea" is a smaller body of salty water that is partly or fully surrounded by land (like the Arabian Sea, Red Sea, or Baltic Sea) [cite: 8]. The first worldwide scientific ocean journey was made by the British ship <strong>HMS Challenger</strong> [cite: 8]!
+    </div>
+
+    <div class="card-footer-nav">
+      <a href="#pageIndex" class="back-to-index-btn">⬆ Back to Index</a>
+    </div>
+  </section>
+
+  <!-- ================= CONCEPT 4: OCEAN FLOOR ================= -->
+  <section id="k4" class="concept-card">
+    <div class="concept-header">
+      <div class="concept-title">
+        <span class="badge-icon">⛰️</span>
+        <h2>4. The Secret World Under the Ocean (Ocean Floor Relief)</h2>
+      </div>
+      <a href="#pageIndex" class="back-to-index-btn">⬆ Back to Index</a>
+    </div>
+
+    <p>The bottom of the sea is NOT a flat swimming pool bottom! It has giant underwater mountains, valleys, plains, and ultra-deep trenches divided into <strong>4 major parts</strong> [cite: 8]:</p>
+
+    <div class="grid-2">
+      <div class="mini-box">
+        <h4>1️⃣ Continental Shelf (0 to 200 m deep)</h4>
+        <p>The shallow border of land under water (covers 7.6% of ocean) [cite: 8].<br>
+        • <strong>Why it matters:</strong> Home to 90% of sea fish, great for seaports, and holds rich underground crude oil and gas (like Bombay High) [cite: 8]!</p>
+      </div>
+
+      <div class="mini-box">
+        <h4>2️⃣ Continental Slope (200 to 3,000 m deep)</h4>
+        <p>The steep downward slide marking the true edge of continents (covers 15% of ocean) [cite: 8]. Has deep river-carved submarine canyons [cite: 8]!</p>
+      </div>
+
+      <div class="mini-box">
+        <h4>3️⃣ Abyssal Plain (3,000 to 6,000 m deep)</h4>
+        <p>The flattest, smoothest, and most gigantic landscape on Earth, covering <strong>76.2%</strong> of the ocean floor [cite: 8]!</p>
+      </div>
+
+      <div class="mini-box">
+        <h4>4️⃣ Ocean Deeps / Trenches (> 6,000 m deep)</h4>
+        <p>Super-deep, narrow valleys plunging where tectonic plates crash [cite: 8]. 57 trenches have been explored [cite: 8]!</p>
+      </div>
+    </div>
+
+    <div class="fun-fact" style="background: rgba(2, 132, 199, 0.2); border-color: #0284c7;">
+      <strong>🏆 The Deepest Point on Planet Earth:</strong>
+      <br>• <strong>Mariana Trench (Challenger Deep)</strong> in the Pacific Ocean is <strong>11,022 meters deep</strong> [cite: 8]!
+      <br>• If you dropped Mount Everest (8,848 m) into it, its peak would still be covered by over 2 kilometers of water!
+      <br>• <em>Puerto Rico Trench</em> (Atlantic) = 10,475 m | <em>Java Trench</em> (Indian Ocean) = 7,450 m [cite: 8].
+    </div>
+
+    <div class="btn-cluster">
+      <button class="btn-interactive" onclick="openModal('https://upload.wikimedia.org/wikipedia/commons/b/b2/Oceanic_divisions.svg', 'Ocean Floor Topography', 'Cross-section of the ocean showing the Continental Shelf, Continental Slope, Abyssal Plain, and Deep Oceanic Trench.')">
+        🖼️ View: Ocean Floor Diagram
+      </button>
+    </div>
+
+    <div class="card-footer-nav">
+      <a href="#pageIndex" class="back-to-index-btn">⬆ Back to Index</a>
+    </div>
+  </section>
+
+  <!-- ================= CONCEPT 5: SALINITY ================= -->
+  <section id="k5" class="concept-card">
+    <div class="concept-header">
+      <div class="concept-title">
+        <span class="badge-icon">🧂</span>
+        <h2>5. Why is the Ocean Salty? (Salinity Secrets)</h2>
+      </div>
+      <a href="#pageIndex" class="back-to-index-btn">⬆ Back to Index</a>
+    </div>
+
+    <p>When rain falls on land rocks, it washes tiny amounts of dissolved minerals and <strong>Sodium Chloride (NaCl - Table Salt)</strong> into rivers, which dump it into the sea [cite: 8]. When ocean water evaporates into the sky, the salt is left behind [cite: 8]!</p>
+
+    <div class="grid-2">
+      <div class="mini-box">
+        <h4>🧪 What is Salinity?</h4>
+        <p>The amount of salt (in grams) dissolved in 1,000 grams of sea water [cite: 8]. Measured as <strong>parts per thousand (‰ or PPT)</strong> [cite: 8].<br>
+        • <strong>Average Ocean Salinity:</strong> <strong>35‰</strong> (35 grams of salt per 1,000 grams of water) [cite: 8]. Common table salt makes up 77.8% of this [cite: 8]!</p>
+      </div>
+
+      <div class="mini-box">
+        <h4>🌡️ What Changes Salinity?</h4>
+        <ul style="margin-left: 18px; font-size: 0.88rem;">
+          <li><strong>Sun & Heat:</strong> High evaporation makes water saltier [cite: 8].</li>
+          <li><strong>Big Rivers:</strong> Pouring freshwater lowers salinity (Baltic Sea is only 10‰) [cite: 8].</li>
+          <li><strong>Melting Ice:</strong> Adds fresh water in polar regions [cite: 8].</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="fun-fact">
+      <strong>🧂 Extreme Salinity Spots in the World:</strong>
+      <br>• <strong>Super Salty (You can float without swimming!):</strong> Don Juan Pond (Antarctica - 440‰), Lake Retba (Senegal - 400‰), Lake Vanda (350‰), Dead Sea (330‰) [cite: 8].
+      <br>• <strong>Low Salinity:</strong> Baltic Sea (10‰) and Hudson Bay (3–15‰) [cite: 8].
+      <br>• <em>Isohaline:</em> An imaginary line joining ocean points with equal salinity [cite: 8].
+    </div>
+
+    <div class="card-footer-nav">
+      <a href="#pageIndex" class="back-to-index-btn">⬆ Back to Index</a>
+    </div>
+  </section>
+
+  <!-- ================= CONCEPT 6: OCEAN CURRENTS ================= -->
+  <section id="k6" class="concept-card">
+    <div class="concept-header">
+      <div class="concept-title">
+        <span class="badge-icon">🌊</span>
+        <h2>6. Ocean Currents: Giant Rivers Inside the Sea!</h2>
+      </div>
+      <a href="#pageIndex" class="back-to-index-btn">⬆ Back to Index</a>
+    </div>
+
+    <p>An <strong>Ocean Current</strong> is a massive stream of water flowing continuously in a fixed direction over thousands of kilometers across the globe [cite: 8].</p>
+
+    <div class="grid-2">
+      <div class="mini-box">
+        <h4>🔥 Warm Currents</h4>
+        <p>Start near the hot Equator and flow toward the cold North and South Poles (e.g., <em>Gulf Stream, Kuroshio Current</em>) [cite: 8].</p>
+      </div>
+
+      <div class="mini-box">
+        <h4>❄️ Cold Currents</h4>
+        <p>Start near the freezing Poles and flow towards the warm Equator (e.g., <em>Labrador Current, Oyashio Current, Peru Current</em>) [cite: 8].</p>
+      </div>
+    </div>
+
+    <h4 style="color: var(--sunny-yellow); margin-top: 15px;">Speed Types & Why Currents Flow [cite: 8]:</h4>
+    <ul style="margin: 8px 0 12px 20px; font-size: 0.92rem;">
+      <li><strong>Stream:</strong> Fast, powerful ocean river (flows speedily) [cite: 8].</li>
+      <li><strong>Drift:</strong> Slow, gentle, wind-pushed water movement [cite: 8].</li>
+      <li><strong>4 Natural Drivers [cite: 8]:</strong>
+        <ol style="margin-left: 18px; margin-top: 4px;">
+          <li><strong>Earth's Centrifugal Force:</strong> Pushes water from the Equator poleward [cite: 8].</li>
+          <li><strong>Planetary Winds:</strong> Drag surface water along with wind direction [cite: 8].</li>
+          <li><strong>Solar Heat & Rain:</strong> Makes equatorial water expand and stand 8 cm higher, creating a downhill slope [cite: 8]!</li>
+          <li><strong>Water Density Differences:</strong> Cold, salty water sinks and crawls along the seabed [cite: 8].</li>
+        </ol>
+      </li>
+    </ul>
+
+    <div class="btn-cluster">
+      <button class="btn-interactive" onclick="openModal('https://upload.wikimedia.org/wikipedia/commons/6/67/Ocean_currents_1943_%28borderless%29.png', 'Global Ocean Currents Map', 'Global map showing Warm Currents (flowing from Equator to Poles) and Cold Currents (flowing from Poles to Equator).')">
+        🖼️ View: Ocean Currents Map
+      </button>
+    </div>
+
+    <div class="card-footer-nav">
+      <a href="#pageIndex" class="back-to-index-btn">⬆ Back to Index</a>
+    </div>
+  </section>
+
+  <!-- ================= CONCEPT 7: OCEAN TREASURES & CRISIS ================= -->
+  <section id="k7" class="concept-card">
+    <div class="concept-header">
+      <div class="concept-title">
+        <span class="badge-icon">💎</span>
+        <h2>7. Ocean as a Treasure Chest & The Pollution Alarm</h2>
+      </div>
+      <a href="#pageIndex" class="back-to-index-btn">⬆ Back to Index</a>
+    </div>
+
+    <div class="grid-2">
+      <div class="mini-box" style="border-color: #10b981;">
+        <h4 style="color: #34d399;">🎁 Treasures We Get from Oceans</h4>
+        <ul style="margin-left: 18px; font-size: 0.88rem;">
+          <li><strong>Food:</strong> Fish, crabs, prawns, seaweed, and common salt [cite: 8].</li>
+          <li><strong>Energy & Fuel:</strong> Petroleum and natural gas drilled from seabeds (Bombay High) [cite: 8]. Wave power generates clean electricity [cite: 8]!</li>
+          <li><strong>Minerals & Jewels:</strong> Chlorine, iodine, fluorine, pearls, and gems [cite: 8].</li>
+          <li><strong>Global Trade:</strong> Huge ships carry goods between continents across ocean highways [cite: 8].</li>
+        </ul>
+      </div>
+
+      <div class="mini-box" style="border-color: #ef4444;">
+        <h4 style="color: #f87171;">⚠️ The Sad Pollution Alarm</h4>
+        <p style="font-size: 0.88rem;">Humans have turned oceans into dumping grounds for <strong>plastic waste, toxic chemicals, and oil spills</strong> [cite: 8]. Giant sea creatures like whales are disappearing and corals are bleaching [cite: 8].</p>
+        <p style="margin-top: 6px; font-weight: bold; color: #fca5a5; font-size: 0.88rem;">👉 Protecting our oceans means protecting all life on Earth!</p>
+      </div>
+    </div>
+
+    <div class="btn-cluster">
+      <button class="btn-interactive" onclick="openModal('https://upload.wikimedia.org/wikipedia/commons/f/f7/Offshore_drilling_rig.jpg', 'Offshore Petroleum Drilling', 'Offshore oil rig platform extracting petroleum and natural gas from the continental shelf.')">
+        🖼️ View: Offshore Oil Drilling
+      </button>
+    </div>
+
+    <div class="card-footer-nav">
+      <a href="#pageIndex" class="back-to-index-btn">⬆ Back to Index</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- Lightbox Modal Window -->
+<div class="modal-overlay" id="imageModal" onclick="closeModal(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3 id="modalTitle">Diagram Title</h3>
+      <button class="modal-close" onclick="closeModalDirect()">×</button>
+    </div>
+    <div class="modal-body">
+      <img id="modalImg" src="" alt="Enlarged View">
+    </div>
+    <div class="modal-caption" id="modalCaption">Caption description.</div>
+  </div>
+</div>
+
+<script>
+  function openModal(imgSrc, title, caption) {
+    document.getElementById('modalImg').src = imgSrc;
+    document.getElementById('modalTitle').innerText = title;
+    document.getElementById('modalCaption').innerText = caption;
+    document.getElementById('imageModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModalDirect() {
+    document.getElementById('imageModal').classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  function closeModal(e) {
+    if (e.target.id === 'imageModal') {
+      closeModalDirect();
+    }
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeModalDirect();
+    }
+  });
+</script>
+
+</body>
+</html>
